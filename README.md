@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# Rail-Capston
+
+is a capston project
+>>>>>>> 6b6700737552445ebc10e4bb43510071fb45884e
