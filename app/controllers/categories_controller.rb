@@ -1,13 +1,17 @@
 class CategoriesController < ApplicationController
+  before_action :authentificate_user!
   before_action :set_category, only: %i[ show edit update destroy ]
 
   # GET /categories or /categories.json
   def index
-    @categories = Categorie.all
+    @categories = Categorie#.includes(:payements)
+    .where(user: current_user).order(update_at: :desc)
   end
 
   # GET /categories/1 or /categories/1.json
   def show
+    #redirect_to payements_url
+    redirect_to categorie_payments_url(@category)
   end
 
   # GET /categories/new
