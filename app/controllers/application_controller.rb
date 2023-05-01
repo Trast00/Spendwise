@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   # Devise Authentification
   protect_from_forgery with: :exception
 
