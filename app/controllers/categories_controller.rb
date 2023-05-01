@@ -1,17 +1,17 @@
 class CategoriesController < ApplicationController
-  before_action :authentificate_user!
+  before_action :authenticate_user!
   before_action :set_category, only: %i[ show edit update destroy ]
 
   # GET /categories or /categories.json
   def index
     @categories = Categorie#.includes(:payements)
-    .where(user: current_user).order(update_at: :desc)
+    .where(user: current_user).order(updated_at: :desc)
   end
 
   # GET /categories/1 or /categories/1.json
   def show
     #redirect_to payements_url
-    redirect_to categorie_payments_url(@category)
+    redirect_to category_payments_path(@category)
   end
 
   # GET /categories/new
@@ -26,10 +26,11 @@ class CategoriesController < ApplicationController
   # POST /categories or /categories.json
   def create
     @category = Categorie.new(category_params)
+    @category.user = current_user
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: "Categorie was successfully created." }
+        format.html { redirect_to category_payments_path(@category), notice: "Categorie was successfully created." }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +43,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to category_url(@category), notice: "Categorie was successfully updated." }
+        format.html { redirect_to category_payments_path(@category), notice: "Categorie was successfully updated." }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -69,6 +70,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:name, :icon, :user_id)
+      params.require(:categorie).permit(:name, :icon)
     end
 end

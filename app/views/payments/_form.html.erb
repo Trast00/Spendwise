@@ -1,4 +1,4 @@
-<%= form_with(model: payment) do |form| %>
+<%= form_with(model: payment, url: category_payments_path) do |form| %>
   <% if payment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
@@ -18,17 +18,7 @@
 
   <div>
     <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :categorie_id, style: "display: block" %>
-    <%= form.text_field :categorie_id %>
+    <%= form.number_field :amount, step: '0.01'%>
   </div>
 
   <div>

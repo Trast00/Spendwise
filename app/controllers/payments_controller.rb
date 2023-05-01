@@ -3,13 +3,13 @@ class PaymentsController < ApplicationController
 
   # GET /payments or /payments.json
   def index
-    @categorie = Categorie.find(params[:categorie_id])
-    @payments = Payment.where(user: current_user, categorie: @categorie).order(update_at: :desc)
+    @categorie = Categorie.find(params[:category_id])
+    @payments = Payment.where(user: current_user, categorie: @categorie).order(updated_at: :desc)
   end
 
   # GET /payments/1 or /payments/1.json
   def show
-    @categorie = Categorie.find(params[:categorie_id])
+    @categorie = Categorie.find(params[:category_id])
     @payment = Payment.find(params[:id])
   end
 
@@ -24,15 +24,18 @@ class PaymentsController < ApplicationController
 
   # POST /payments or /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    payment = Payment.new(payment_params)
+    payment.user = current_user
+    categorie = Categorie.find(params[:category_id])
+    payment.categorie = categorie
 
     respond_to do |format|
-      if @payment.save
-        format.html { redirect_to payment_url(@payment), notice: "Payment was successfully created." }
-        format.json { render :show, status: :created, location: @payment }
+      if payment.save
+        format.html { redirect_to category_payments_path(categorie), notice: "Payment was successfully created." }
+        format.json { render :show, status: :created, location: payment }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @payment.errors, status: :unprocessable_entity }
+        format.json { render json: payment.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,7 +44,7 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to payment_url(@payment), notice: "Payment was successfully updated." }
+        format.html { redirect_to category_payment_path(@payment), notice: "Payment was successfully updated." }
         format.json { render :show, status: :ok, location: @payment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -68,6 +71,6 @@ class PaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def payment_params
-      params.require(:payment).permit(:name, :amount, :user_id, :categorie_id)
+      params.require(:payment).permit(:name, :amount)
     end
 end
