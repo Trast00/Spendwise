@@ -1,0 +1,9 @@
+.navbar {
+  color: white;
+  padding: 12px;
+  background-color: var(--color-primary);
+}
+
+.navbar h1 {
+  font-weight: 100;
+}

@@ -1,13 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
+<header>
+  <nav class="flex-center navbar">
+    <%= button_to image_tag("icons8-log-out-50 (1).png", width: 24), destroy_user_session_path,  method: :delete, class: 'no-styling flex-center' %>
+    <a href="/categories" class="flex-center max-content-flex"><h1>Transactions</h1></a>
+  </nav>
+</header>
 
-<div id="categories">
+<header class="row categorie-header">
+  <p class="max-content-flex">Gift Credit</p>
+  <p> <strong>100$</strong> </p>
+</header>
+
+<ul id="categories" class="categories">
   <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this categorie", category %>
-    </p>
+    <%= link_to category do %>
+      <%= render category %>
+    <% end %>
   <% end %>
 </div>
 

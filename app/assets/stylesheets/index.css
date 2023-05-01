@@ -14,8 +14,10 @@ body {
   --color-text: #434b54;
   --color-text-light: #697077;
   --color-background: #F0F2F1;
+  --color-background-dark: #ABA9A9;
 
   color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 a {
@@ -27,6 +29,8 @@ a {
   list-style: none;
   text-decoration: none;
   color: var(--color-text);
+  background-color: inherit;
+  border: inherit;
 }
 
 .flex-center {
@@ -53,14 +57,14 @@ a {
   width: 100vw;
 }
 
-.max-content-fex {
+.max-content-flex {
   flex: 1;
 }
 
 .card {
   border: 0.8px solid #d3d3d3;
   border-radius: 3px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 3px 3px rgb(181 181 181 / 30%);
 }
 
 .gap {

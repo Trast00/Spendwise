@@ -1,17 +1,12 @@
-<div id="<%= dom_id categorie %>">
-  <p>
-    <strong>Name:</strong>
-    <%= categorie.name %>
-  </p>
-
-  <p>
-    <strong>Icon:</strong>
-    <%= categorie.icon %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
+<li id="<%= dom_id categorie %>" class="row card categorie">
+  <img src=<%= categorie.icon %> alt=<%= "Image of categorie #{categorie.name}" %>>
+  
+  <div class="column description">
+    <h3 class="max-content-flex row"><%= categorie.name %></h3>
+    <p><%= categorie.updated_at %></p>
+  </div>
+  <p class="max-content-flex flex-center">
+    <strong>20$</strong>
     <%= categorie.user_id %>
   </p>
-
-</div>
+</li>

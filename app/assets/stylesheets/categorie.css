@@ -1,0 +1,40 @@
+.categorie-header {
+  color: var(--color-text-light);
+  padding: 16px 24px;
+  background-color: white;
+  border-bottom: 0.8px solid #d3d3d3;
+  box-shadow: 2px 3px 3px rgb(181 181 181 / 30%);
+}
+
+.categories {
+  padding: 16px;
+}
+
+.categorie {
+  background-color: white;
+  padding: 12px;
+  max-height: 300px;
+  margin-bottom: 12px;
+}
+
+.categorie img {
+  width: 80px;
+  height: 80px;
+}
+
+.categorie .description {
+  padding: 8px;
+}
+
+.categorie .description h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  align-items: center;
+}
+
+.categorie .description p {
+  font-size: 0.7rem;
+  color: var(--color-text-light);
+}
+
+
