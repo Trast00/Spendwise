@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: %i[ show edit update destroy ]
+  before_action :authorize_user
 
   # GET /categories or /categories.json
   def index
@@ -66,6 +67,10 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Categorie.find(params[:id])
+    end
+
+    def authorize_user
+      redirect_to root_path, alert: 'Not authorized!' unless (can? :manage, Categorie)
     end
 
     # Only allow a list of trusted parameters through.
