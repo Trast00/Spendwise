@@ -30,7 +30,7 @@ a {
   text-decoration: none;
   color: var(--color-text);
   background-color: inherit;
-  border: inherit;
+  border: none;
 }
 
 .flex-center {
@@ -62,8 +62,9 @@ a {
 }
 
 .card {
-  border: 0.8px solid #d3d3d3;
+  background-color: white;
   border-radius: 3px;
+  border: 0.8px solid #d3d3d3;
   box-shadow: 2px 3px 3px rgb(181 181 181 / 30%);
 }
 

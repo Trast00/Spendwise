@@ -1,22 +1,11 @@
-<div id="<%= dom_id payment %>">
-  <p>
-    <strong>Name:</strong>
-    <%= payment.name %>
-  </p>
+<li id="<%= dom_id payment %>" class="payement">
+  <h4>
+    <strong>Transaction N°:</strong>
+    <%= payment.id %>
+  </h4>
 
-  <p>
-    <strong>Amount:</strong>
-    <%= payment.amount %>
+  <p class="row description">
+    <%= image_tag("icons8-calendrier-48.png", width: 24) %>
+    <%= payment.updated_at %>
   </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= payment.user_id %>
-  </p>
-
-  <p>
-    <strong>Categorie:</strong>
-    <%= payment.categorie_id %>
-  </p>
-
-</div>
+</li>
