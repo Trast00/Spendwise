@@ -1,0 +1,11 @@
+.splash {
+  padding: 16px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--color-background);
+}
+
+.splash h1 {
+  margin-bottom: 2em;
+}

@@ -1,0 +1,11 @@
+<li id="<%= dom_id payment %>" class="payement">
+  <h4>
+    <strong>Transaction N°:</strong>
+    <%= payment.id %>
+  </h4>
+
+  <p class="row description">
+    <%= image_tag("icons8-calendrier-48.png", width: 24) %>
+    <%= payment.updated_at %>
+  </p>
+</li>

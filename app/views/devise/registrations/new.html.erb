@@ -1,0 +1,32 @@
+<header>
+  <nav class="flex-center navbar">
+    <%= link_to image_tag("icons8-gauche-50 (1).png", width: 32), root_path, class: 'no-styling flex-center' %>
+    <a href="/" class="flex-center max-content-flex"><h1>Sign up</h1></a>
+  </nav>
+</header>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name*", class: "input-default first" %>
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email*", class: "input-default" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password*", class: "input-default" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation*", class: "input-default" %>
+  </div>
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="max-width column gap btns actions">
+    <%= f.submit "Register" %>
+    <%= link_to "Log in", new_user_session_path %>
+  </div>
+<% end %>

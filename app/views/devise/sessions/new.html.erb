@@ -1,0 +1,22 @@
+<header>
+  <nav class="flex-center navbar">
+    <%= link_to image_tag("icons8-gauche-50 (1).png", width: 32), root_path, class: 'no-styling flex-center' %>
+    <a href="/" class="flex-center max-content-flex"><h1>Log In</h1></a>
+  </nav>
+</header>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email*", class: "input-default first" %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password*", class: "input-default" %>
+  </div>
+
+  <div class="max-width column gap btns actions">
+    <%= f.submit "Log in" %>
+    <%= link_to "Register", new_user_registration_path %>
+  </div>
+<% end %>
+

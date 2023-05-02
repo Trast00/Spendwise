@@ -1,0 +1,35 @@
+<header>
+  <nav class="flex-center navbar">
+    <%= link_to image_tag("icons8-gauche-50 (1).png", width: 32), categories_path, class: 'no-styling flex-center btn-back' %>
+    <a href="/categories" class="flex-center max-content-flex"><h1>Payment</h1></a>
+  </nav>
+</header>
+
+<p style="color: green"><%= notice %></p>
+
+<div class="payements">
+  <main class="card">
+    <div class="column">
+      <div class="categorie row">
+        <img src= <%= @categorie.icon %> alt=<%= "category #{@categorie.name}" %> />
+        <h3 class="max-content-flex row">
+          <%= @categorie.name %>
+        </h3>
+      </div>
+    </div>
+    <hr />
+    <ul id="payments" class="no-styling">
+      <% @payments.each do |payment| %>
+        <%= render payment %>
+      <% end %>
+    </ul>
+    <div class="row total">
+      <h4 class="max-content-flex">TOTAL PAYMENT</h4>
+      <h4>$<%= @categorie.total_amount %></h4>
+    </div>
+  </main>
+</div>
+
+<div class="btns flex-center margin-24">
+  <%= link_to "New Payment", new_category_payment_path(@categorie) %>
+</div>
