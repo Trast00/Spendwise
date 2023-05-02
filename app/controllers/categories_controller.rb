@@ -5,8 +5,10 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Categorie # .includes(:payements)
+    @categories = Categorie.includes(:payments)
       .where(user: current_user).order(updated_at: :desc)
+
+    @total_amount = Categorie.total_amount(@categories)
   end
 
   # GET /categories/1 or /categories/1.json
@@ -70,7 +72,8 @@ class CategoriesController < ApplicationController
   end
 
   def authorize_user
-    redirect_to root_path, alert: 'Not authorized!' unless can? :manage, Categorie
+    @categorie = Categorie.find_by(id: params[:id])
+    redirect_to '/not_accessible' if @categorie && (cannot? :manage, @categorie)
   end
 
   # Only allow a list of trusted parameters through.
