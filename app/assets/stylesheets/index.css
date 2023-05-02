@@ -72,3 +72,39 @@ a {
   gap: 16px;
 }
 
+.input-default {
+  width: 100%;
+  padding: 12px;
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  border-bottom: 0.8px solid #d3d3d3;
+  outline: 0;
+}
+
+.input-default.first {
+  border-top: 0.8px solid #d3d3d3;
+}
+
+.btns a, 
+.btns button, 
+.btns input[type="submit"] {
+  font-size: 1.2rem;
+  padding: 16px 32px;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.btns a:first-child, 
+.btns button:first-child, 
+.btns input[type="submit"]  {
+  color: white;
+  border: none;
+  text-decoration: none;
+  background-color: var(--color-primary);
+}
+
+.margin-24 {
+  margin: 24px;
+}
