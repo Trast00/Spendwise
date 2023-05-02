@@ -85,6 +85,9 @@ test:
 #
 production:
   <<: *default
-  database: capston_ror_production
-  username: capston_ror
-  password: <%= ENV["CAPSTON_ROR_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['USER_NAME'] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
