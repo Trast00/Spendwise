@@ -3,10 +3,12 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [Rail-Capston](#rail-capston)
+- [Spend-Wise](#spend-wise)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+- [📺 Presentation video](#-presentation-video)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -20,7 +22,8 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# Rail-Capston
+# Spend-Wise
+Spendwise is a Rails application designed to help users manage personal finances. Featuring secure authentication with Devise and precise authorization using CanCanCan, it enables users to track spending by creating payments and organizing them into categories. All financial data remains private and secure, empowering users to achieve better financial well-being.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -46,6 +49,15 @@
 - **Expense tracker webapp**
 - **API endpoints**
   
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://spendwise-99pe.onrender.com/)
+
+# 📺 Presentation video
+- **[Watch a 5min presentation video here](https://www.loom.com/share/e1e2cf6d7dea4617ae138945bf153e0d)**
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
