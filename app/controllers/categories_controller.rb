@@ -68,7 +68,8 @@ class CategoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_category
-    @category = Categorie.find(params[:id])
+    @category = Categorie.find_by(id: params[:id])
+    redirect_to '/not_found' if @categorie
   end
 
   def authorize_user
