@@ -43,9 +43,10 @@ RSpec.describe Categorie, type: :system do
     end
 
     it 'btn add categorie should redirect to new categorie page' do
-      visit '/categories'
+      visit '/categories/new'
       click_link "New Category"
       expect(page).to have_content("New Category")
     end
+
   end
 end
