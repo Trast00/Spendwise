@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: %i[ show edit update destroy ]
+  before_action :set_payment, only: %i[show edit update destroy]
   before_action :authorize_user
 
   # GET /payments or /payments.json
@@ -20,8 +20,7 @@ class PaymentsController < ApplicationController
   end
 
   # GET /payments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /payments or /payments.json
   def create
@@ -32,7 +31,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if payment.save
-        format.html { redirect_to category_payments_path(categorie), notice: "Payment was successfully created." }
+        format.html { redirect_to category_payments_path(categorie), notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: payment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +44,7 @@ class PaymentsController < ApplicationController
   def update
     respond_to do |format|
       if @payment.update(payment_params)
-        format.html { redirect_to category_payment_path(@payment), notice: "Payment was successfully updated." }
+        format.html { redirect_to category_payment_path(@payment), notice: 'Payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,23 +58,24 @@ class PaymentsController < ApplicationController
     @payment.destroy
 
     respond_to do |format|
-      format.html { redirect_to payments_url, notice: "Payment was successfully destroyed." }
+      format.html { redirect_to payments_url, notice: 'Payment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_payment
-      @payment = Payment.find(params[:id])
-    end
 
-    def authorize_user
-      redirect_to root_path, alert: 'Not authorized!' unless (can? :manage, Categorie)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_payment
+    @payment = Payment.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def payment_params
-      params.require(:payment).permit(:name, :amount)
-    end
+  def authorize_user
+    redirect_to root_path, alert: 'Not authorized!' unless can? :manage, Categorie
+  end
+
+  # Only allow a list of trusted parameters through.
+  def payment_params
+    params.require(:payment).permit(:name, :amount)
+  end
 end
