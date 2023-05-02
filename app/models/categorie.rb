@@ -10,6 +10,6 @@ class Categorie < ApplicationRecord
   end
 
   def total_amount
-    self.payments.sum(:amount)
+    payments.sum(:amount)
   end
 end

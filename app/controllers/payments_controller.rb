@@ -72,7 +72,7 @@ class PaymentsController < ApplicationController
   end
 
   def authorize_user
-    redirect_to root_path, alert: 'Not authorized!' unless can? :manage, Categorie
+    redirect_to '/not_accessible' if cannot? :manage, Categorie
   end
 
   # Only allow a list of trusted parameters through.

@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resources :payments
   end
 
-  get 'not_accessible', to: 'errors#not_accessible'
-  get "*path'", to: "error#error_404"
+  get '/not_accessible', to: 'error#error_403'
+  get "*path", to: "error#error_404"
 end
