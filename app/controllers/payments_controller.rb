@@ -72,7 +72,8 @@ class PaymentsController < ApplicationController
   end
 
   def authorize_user
-    redirect_to '/not_accessible' if cannot? :manage, Categorie
+    @categorie = Categorie.find_by(id: params[:id])
+    redirect_to '/not_accessible' if @categorie && (cannot? :manage, @categorie)
   end
 
   # Only allow a list of trusted parameters through.
