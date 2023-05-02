@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
   # GET /payments or /payments.json
   def index
     @categorie = Categorie.find(params[:category_id])
-    @payments = Payment.where(user: current_user, categorie: @categorie).order(updated_at: :desc)
+    @payments = Payment.where(user: current_user, categorie_id: @categorie.id).order(updated_at: :desc)
   end
 
   # GET /payments/1 or /payments/1.json
@@ -28,7 +28,7 @@ class PaymentsController < ApplicationController
     payment = Payment.new(payment_params)
     payment.user = current_user
     categorie = Categorie.find(params[:category_id])
-    payment.categorie = categorie
+    payment.categorie_id = categorie.id
 
     respond_to do |format|
       if payment.save

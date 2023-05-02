@@ -5,8 +5,10 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Categorie # .includes(:payements)
-      .where(user: current_user).order(updated_at: :desc)
+    @categories = Categorie.includes(:payments)
+    .where(user: current_user).order(updated_at: :desc)
+
+    @total_amount = Categorie.total_amount(@categories)
   end
 
   # GET /categories/1 or /categories/1.json

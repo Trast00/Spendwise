@@ -1,11 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
 <header>
   <nav class="flex-center navbar">
     <%= link_to image_tag("icons8-gauche-50 (1).png", width: 32), categories_path, class: 'no-styling flex-center' %>
     <a href="/categories" class="flex-center max-content-flex"><h1>Payment</h1></a>
   </nav>
 </header>
+
+<p style="color: green"><%= notice %></p>
 
 <div class="payements">
   <main class="card">
@@ -25,7 +25,7 @@
     </ul>
     <div class="row total">
       <h4 class="max-content-flex">TOTAL PAYEMENT</h4>
-      <h4>$30</h4>
+      <h4>$<%= @categorie.total_amount %></h4>
     </div>
   </main>
 </div>

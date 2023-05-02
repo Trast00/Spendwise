@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <header>
   <nav class="flex-center navbar">
     <%= button_to image_tag("icons8-log-out-50 (1).png", width: 24), destroy_user_session_path,  method: :delete, class: 'no-styling flex-center' %>
@@ -8,9 +6,11 @@
 </header>
 
 <header class="row categorie-header">
-  <p class="max-content-flex">Gift Credit</p>
-  <p> <strong>100$</strong> </p>
+  <p class="max-content-flex">Total amount: </p>
+  <p> <strong>$<%= @total_amount %></strong> </p>
 </header>
+
+<p style="color: green"><%= notice %></p>
 
 <ul id="categories" class="categories">
   <% @categories.each do |category| %>
