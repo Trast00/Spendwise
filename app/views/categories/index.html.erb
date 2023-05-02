@@ -1,6 +1,7 @@
 <header>
   <nav class="flex-center navbar">
-    <%= button_to image_tag("icons8-log-out-50 (1).png", width: 24), destroy_user_session_path,  method: :delete, class: 'no-styling flex-center' %>
+    <%= button_to image_tag("icons8-log-out-50 (1).png", width: 24), destroy_user_session_path, 
+    method: :delete, class: 'no-styling flex-center', id: "btn-logout" %>
     <a href="/categories" class="flex-center max-content-flex"><h1>Transactions</h1></a>
   </nav>
 </header>
@@ -20,5 +21,5 @@
 </div>
 
 <div class="btns flex-center margin-24">
-  <%= link_to "New categorie", new_category_path %>
+  <%= link_to "New Category", new_category_path %>
 </div>

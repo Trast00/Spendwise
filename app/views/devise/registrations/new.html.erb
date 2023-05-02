@@ -6,14 +6,13 @@
 </header>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name*", class: "input-default first" %>
   </div>
 
   <div class="field">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eamil*", class: "input-default" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email*", class: "input-default" %>
   </div>
 
   <div class="field">
@@ -24,8 +23,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation*", class: "input-default" %>
   </div>
 
+  <%= render "devise/shared/error_messages", resource: resource %>
+
   <div class="max-width column gap btns actions">
-    <%= f.submit "Log in" %>
-    <%= link_to "Register", new_user_registration_path %>
+    <%= f.submit "Register" %>
+    <%= link_to "Log in", new_user_session_path %>
   </div>
 <% end %>

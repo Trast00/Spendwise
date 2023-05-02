@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  before_action :set_category
   before_action :set_payment, only: %i[show edit update destroy]
   before_action :authorize_user
 
@@ -67,13 +68,19 @@ class PaymentsController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    @category = Categorie.find_by(id: params[:category_id])
+    redirect_to '/not_found' unless @category
+  end
+
   def set_payment
-    @payment = Payment.find(params[:id])
+    @payment = Payment.find_by(id: params[:id])
+    redirect_to '/not_found' unless @payment
   end
 
   def authorize_user
-    @categorie = Categorie.find_by(id: params[:id])
-    redirect_to '/not_accessible' if @categorie && (cannot? :manage, @categorie)
+    @category = Categorie.find_by(id: params[:category_id])
+    redirect_to '/not_accessible' unless @category && (can? :manage, @category)
   end
 
   # Only allow a list of trusted parameters through.

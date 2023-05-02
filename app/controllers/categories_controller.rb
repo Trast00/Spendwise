@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_category, only: %i[show edit update destroy]
-  before_action :authorize_user
+  before_action :authorize_user, only: %i[show edit update destroy]
 
   # GET /categories or /categories.json
   def index
@@ -68,7 +68,8 @@ class CategoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_category
-    @category = Categorie.find(params[:id])
+    @category = Categorie.find_by(id: params[:id])
+    redirect_to '/not_found' if @categorie
   end
 
   def authorize_user

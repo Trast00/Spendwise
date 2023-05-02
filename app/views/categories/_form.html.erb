@@ -1,4 +1,11 @@
 <%= form_with(model: category) do |form| %>
+  <div>
+    <%= form.text_field :name, placeholder: "Category's Name*", class: "input-default first", required: true %>
+  </div>
+
+  <div>
+    <%= form.text_field :icon, placeholder: "Icon URL*", class: "input-default", required: true %>
+  </div>
   <% if category.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -11,15 +18,7 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.text_field :name, placeholder: "Category's Name*", class: "input-default first" %>
-  </div>
-
-  <div>
-    <%= form.text_field :icon, placeholder: "Icon URL*", class: "input-default" %>
-  </div>
-
   <div class="btns max-width column  actions">
-    <%= form.submit %>
+    <%= form.submit "Create Category" %>
   </div>
 <% end %>
