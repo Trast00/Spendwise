@@ -5,11 +5,11 @@ RSpec.describe Payment, type: :system do
   before(:all) do
     user = authentificate_test_user
     @categorie = Categorie.first
-    @categorie ||= Categorie.create(name: 'test', icon: 'testImg', user: user)
+    @categorie ||= Categorie.create(name: 'test', icon: 'testImg', user:)
     @payments = Payment.all
-    if (@payments.length == 0)
-      Payment.create(name: 'test', amount: 17, user: user, categorie_id: @categorie.id)
-      Payment.create(name: 'test2', amount: 18, user: user, categorie_id: @categorie.id)
+    if @payments.empty?
+      Payment.create(name: 'test', amount: 17, user:, categorie_id: @categorie.id)
+      Payment.create(name: 'test2', amount: 18, user:, categorie_id: @categorie.id)
     end
     @payments = Payment.all
   end
@@ -48,13 +48,13 @@ RSpec.describe Payment, type: :system do
     end
 
     it 'btn back should redirect to categories in page' do
-      click_link(class: "btn-back")
+      click_link(class: 'btn-back')
       expect(page).to have_content('Transactions')
     end
 
     it 'btn add payment should redirect to new payment page' do
-      click_link "New Payment"
-      expect(page).to have_content("New Payment")
+      click_link 'New Payment'
+      expect(page).to have_content('New Payment')
     end
   end
 end

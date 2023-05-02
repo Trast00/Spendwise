@@ -24,10 +24,9 @@ RSpec.describe Categorie, type: :system do
     it 'should submit form' do
       visit '/categories/new'
       fill_in "Category's Name*", with: 'testNew'
-      fill_in "Icon URL*", with: 'testImgNew'
+      fill_in 'Icon URL*', with: 'testImgNew'
       click_button 'Create Category'
       expect(has_current_path?('/categories/new', wait: 5)).to be_truthy
     end
-
   end
 end

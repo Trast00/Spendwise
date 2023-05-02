@@ -5,9 +5,9 @@ RSpec.describe Categorie, type: :system do
   before(:all) do
     user = authentificate_test_user
     @categories = Categorie.all
-    if (@categories.length == 0)
-      Categorie.create(name: 'test', icon: 'testImg', user: user)
-      Categorie.create(name: 'test2', icon: 'testImg2', user: user)
+    if @categories.empty?
+      Categorie.create(name: 'test', icon: 'testImg', user:)
+      Categorie.create(name: 'test2', icon: 'testImg2', user:)
     end
     @categories = Categorie.all
   end
@@ -39,15 +39,14 @@ RSpec.describe Categorie, type: :system do
     end
     it 'btn log out should redirect to root in page' do
       visit '/categories'
-      click_button(id: "btn-logout")
+      click_button(id: 'btn-logout')
       expect(page).to have_content('Log in')
     end
 
     it 'btn add categorie should redirect to new categorie page' do
       visit '/categories/new'
-      click_link "New Category"
-      expect(page).to have_content("New Category")
+      click_link 'New Category'
+      expect(page).to have_content('New Category')
     end
-
   end
 end

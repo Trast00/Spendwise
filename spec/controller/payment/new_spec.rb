@@ -5,7 +5,7 @@ RSpec.describe Payment, type: :system do
   before(:all) do
     user = authentificate_test_user
     @categorie = Categorie.first
-    @categorie ||= Categorie.create(name: 'test', icon: 'testImg', user: user)
+    @categorie ||= Categorie.create(name: 'test', icon: 'testImg', user:)
   end
   describe 'test display payement#new' do
     before(:each) do
@@ -20,7 +20,7 @@ RSpec.describe Payment, type: :system do
 
     it 'should display error message on submit form without email' do
       fill_in "Payment's Name*", with: 'testNew'
-      fill_in "Amount*", with: ""
+      fill_in 'Amount*', with: ''
       click_button 'Create Payment'
       # as there is error, it's stay on the page
       expect(page).to have_content('New Payment')
@@ -28,7 +28,7 @@ RSpec.describe Payment, type: :system do
 
     it 'amount cannot be smaller than 0' do
       fill_in "Payment's Name*", with: 'testNew'
-      fill_in "Amount*", with: -20
+      fill_in 'Amount*', with: -20
       click_button 'Create Payment'
       # as there is error, it's stay on the page
       expect(page).to have_content('New Payment')
@@ -36,10 +36,9 @@ RSpec.describe Payment, type: :system do
 
     it 'should submit form' do
       fill_in "Payment's Name*", with: 'testNew'
-      fill_in "Amount*", with: 100
+      fill_in 'Amount*', with: 100
       click_button 'Create Payment'
       expect(has_current_path?("/categories/#{@categorie.id}/payments", wait: 5)).to be_truthy
     end
   end
 end
-      
