@@ -1,10 +1,10 @@
 <%= form_with(model: category) do |form| %>
   <div>
-    <%= form.text_field :name, placeholder: "Category's Name*", class: "input-default first" %>
+    <%= form.text_field :name, placeholder: "Category's Name*", class: "input-default first", required: true %>
   </div>
 
   <div>
-    <%= form.text_field :icon, placeholder: "Icon URL*", class: "input-default" %>
+    <%= form.text_field :icon, placeholder: "Icon URL*", class: "input-default", required: true %>
   </div>
   <% if category.errors.any? %>
     <div style="color: red">

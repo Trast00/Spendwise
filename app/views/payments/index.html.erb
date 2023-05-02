@@ -1,6 +1,6 @@
 <header>
   <nav class="flex-center navbar">
-    <%= link_to image_tag("icons8-gauche-50 (1).png", width: 32), categories_path, class: 'no-styling flex-center' %>
+    <%= link_to image_tag("icons8-gauche-50 (1).png", width: 32), categories_path, class: 'no-styling flex-center btn-back' %>
     <a href="/categories" class="flex-center max-content-flex"><h1>Payment</h1></a>
   </nav>
 </header>
@@ -31,5 +31,5 @@
 </div>
 
 <div class="btns flex-center margin-24">
-  <%= link_to "New payment", new_category_payment_path(@categorie) %>
+  <%= link_to "New Payment", new_category_payment_path(@categorie) %>
 </div>

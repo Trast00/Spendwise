@@ -12,11 +12,11 @@
   <% end %>
 
   <div>
-    <%= form.text_field :name, placeholder: "Full Name*", class: "input-default first" %>
+    <%= form.text_field :name, placeholder: "Payment's Name*", class: "input-default first", required: true %>
   </div>
 
   <div>
-    <%= form.number_field :amount, step: '0.01', placeholder: "Amount*", class: "input-default" %>
+    <%= form.number_field :amount, step: '0.01', placeholder: "Amount*", class: "input-default", min: 0, required: true %>
   </div>
 
   <div class="btns max-width flex-center actions">

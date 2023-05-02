@@ -17,7 +17,8 @@ RSpec.describe Categorie, type: :system do
       visit '/categories/new'
       fill_in "Category's Name*", with: 'testNew'
       click_button 'Create Category'
-      expect(page).to have_content('1 error prohibited this category from being saved')
+      # as there is error, it's stay on the page
+      expect(page).to have_content('New Category')
     end
 
     it 'should submit form' do

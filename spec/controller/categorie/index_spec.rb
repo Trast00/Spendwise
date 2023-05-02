@@ -3,10 +3,11 @@ require_relative '../spec_support_helpers'
 
 RSpec.describe Categorie, type: :system do
   before(:all) do
+    user = authentificate_test_user
     @categories = Categorie.all
     if (@categories.length == 0)
-      Categorie.create(name: 'test', icon: 'testImg')
-      Categorie.create(name: 'test2', icon: 'testImg2')
+      Categorie.create(name: 'test', icon: 'testImg', user: user)
+      Categorie.create(name: 'test2', icon: 'testImg2', user: user)
     end
     @categories = Categorie.all
   end
